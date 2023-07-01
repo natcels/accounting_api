@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/aumentoteam/First_Project.git"
+    "url": ""
   },
-  "author": "Aumento Team",
+  "author": "Nathaniel Okpokpong",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/aumentoteam/First_Project/issues"
+    "url": ""
   },
-  "homepage": "https://github.com/aumentoteam/First_Project#readme",
+  "homepage": "",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "body-parser": "^1.20.0",

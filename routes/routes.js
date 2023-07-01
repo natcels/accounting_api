@@ -16,12 +16,11 @@ const userController = require('../controllers/user.controller');
 const router = express.Router();
 
 router.use(authMiddleware.authenticate);
+
 //User Routes
 
 router.post('/signup', passwordChecker.validatePassword, userController.signup);
 router.post('/login', userController.login);
-
-
 router.get('/users/:id/access', authenticate, userController.getAccessToken);
 router.patch('/users/:id', authenticate, verifySession, userController.updateUser);
 router.post('/logout', verifySession, userController.logout);

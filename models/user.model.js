@@ -18,6 +18,7 @@ const userSchema = new mongoose.Schema({
     enum: ["Verified", "Unverified"],
     default: "Unverified"
   },
+  secret: String,
   userType: { type: String, required: true, trim: true, minlength: 3, default: "Guest" },
   sessions: [
     {

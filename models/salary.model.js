@@ -54,9 +54,6 @@ const salarySchema = new mongoose.Schema({
 
 });
 
-
-
-
 module.exports = {
     Allowance: mongoose.model('Allowance', allowanceSchema),
     Bonus: mongoose.model('Bonus', bonusSchema),

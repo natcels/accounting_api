@@ -120,7 +120,7 @@ router.get('/training/:id', trainingController.getTrainingById);
 router.put('/training/:id', trainingController.updateTraining);
 router.delete('/training/:id', trainingController.deleteTraining);
 
-
+//Leave Routes
 router.post('/leave', leaveController.createLeave);
 router.get('/leave', leaveController.getAllLeaves);
 router.get('/leave/:id', leaveController.getLeaveById);

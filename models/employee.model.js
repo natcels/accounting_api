@@ -17,6 +17,11 @@ const employeeSchema = new mongoose.Schema({
         ref: "Departments",
         required: true
     },
+    organization: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Organization',
+        required: true,
+    },
     line_manager: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Employee",

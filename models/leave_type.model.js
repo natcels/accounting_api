@@ -7,6 +7,11 @@ const leaveTypeSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
+    organization: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Organization',
+        required: true,
+    },
     description: {
         type: String
     },

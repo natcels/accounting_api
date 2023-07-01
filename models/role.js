@@ -6,6 +6,11 @@ const roleSchema = new mongoose.Schema({
         required: true,
         unique: true,
     },
+    organization: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Organization',
+        required: true,
+    },
     permissions: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Permission',

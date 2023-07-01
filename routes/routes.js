@@ -7,7 +7,7 @@ const profileController = require('../controllers/profile.controller');
 
 //import utilities
 const { verifySession, authenticate } = require('../utils');
-const twofactorMiddleware = require('../utils/2fa');
+const twofactorMiddleware = require('../utils/twoFactorAuth');
 const passwordChecker = require('../utils/passwordChecker');
 
 //import user controller

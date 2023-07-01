@@ -1,9 +1,21 @@
 //import dependencies
 const express = require('express');
-const authMiddleware = require('../middleware/authentication');
-const payrollController = require('../controllers/payroll.controller');
+//const authMiddleware = require('../middleware/authentication');
+const authMiddleware = require('../utils/authenticate');
+//const payrollController = require('../controllers/payroll.controller');
+const expenseController = require('../controllers/expense.controller');
 const profileController = require('../controllers/profile.controller');
+const leaveController = require('../controllers/leave.controller');
+const deductionsController = require('../controllers/deduction.controller');
+const employeeController = require('../controllers/employee.controller');
+const salariesController = require('../controllers/salary.controller');
+const attendanceController = require('../controllers/attendance.controller');
+const timesheetController = require('../controllers/timesheet.controller');
+const trainingController = require('../controllers/training.controller');
+const timeOffController = require('../controllers/time_off_request.controller');
+const payrollSettingsController = require('../controllers/payroll.controller');
 
+const leaveTypeController = require('../controllers/leave_type.controller');
 
 //import utilities
 const { verifySession, authenticate } = require('../utils');
@@ -31,7 +43,7 @@ router.get('/users', authenticate, verifySession, userController.getUsers);
 router.post('/users/:id/profile', profileController.createProfile);
 router.put('/users/:id/profile', profileController.updateProfile);
 router.get('/users/:id/profile', profileController.getProfileById);
-router.post('/users/:id/profile/picture', profileController.uploadProfilePicture);
+//router.post('/users/:id/profile/picture', profileController.uploadProfilePicture);
 router.put('/users/:id/profile/picture', profileController.updateProfilePicture);
 router.put('/users/:id/profile/avatar', profileController.updateAvatar)
 
@@ -42,81 +54,86 @@ router.post('/users/twofactor/verify', twofactorMiddleware.verifyToken, (req, re
 
 
 // Payroll routes
-router.post('/payrolls', payrollController.createPayroll);
-router.get('/payrolls', payrollController.getAllPayrolls);
-router.get('/payrolls/:id', payrollController.getPayrollById);
-router.put('/payrolls/:id', payrollController.updatePayroll);
-router.delete('/payrolls/:id', payrollController.deletePayroll);
+// router.post('/payrolls', payrollController.createPayroll);
+// router.get('/payrolls', payrollController.getAllPayrolls);
+// router.get('/payrolls/:id', payrollController.getPayrollById);
+// router.put('/payrolls/:id', payrollController.updatePayroll);
+// router.delete('/payrolls/:id', payrollController.deletePayroll);
 
 // Employee routes
-router.post('/employees', payrollController.createEmployee);
-router.get('/employees', payrollController.getAllEmployees);
-router.get('/employees/:id', payrollController.getEmployeeById);
-router.put('/employees/:id', payrollController.updateEmployee);
-router.delete('/employees/:id', payrollController.deleteEmployee);
+router.post('/employees', employeeController.createEmployee);
+router.get('/employees', employeeController.getAllEmployees);
+router.get('/employees/:id', employeeController.getEmployeeById);
+router.put('/employees/:id', employeeController.updateEmployee);
+router.delete('/employees/:id', employeeController.deleteEmployee);
 
 // Salary routes
-router.post('/salaries', payrollController.createSalary);
-router.get('/salaries', payrollController.getAllSalaries);
-router.get('/salaries/:id', payrollController.getSalaryById);
-router.put('/salaries/:id', payrollController.updateSalary);
-router.delete('/salaries/:id', payrollController.deleteSalary);
+router.post('/salaries', salariesController.createSalary);
+router.get('/salaries', salariesController.getSalaries);
+router.get('/salaries/:id', salariesController.getSalaryById);
+router.put('/salaries/:id', salariesController.updateSalary);
+router.delete('/salaries/:id', salariesController.deleteSalary);
 
 // Attendance routes
-router.post('/attendance', payrollController.markAttendance);
-router.get('/attendance', payrollController.getAllAttendance);
-router.get('/attendance/:employeeId', payrollController.getAttendanceByEmployeeId);
+router.post('/attendance', attendanceController.createAttendance);
+router.get('/attendance', attendanceController.getAttendances);
+router.get('/attendance/:employeeId', attendanceController.getAttendanceByEmployeeId);
 
 // Timesheet routes
-router.post('/timesheet', payrollController.submitTimesheet);
-router.get('/timesheet', payrollController.getAllTimesheets);
-router.get('/timesheet/:id', payrollController.getTimesheetById);
+router.post('/timesheet', timesheetController.createTimesheet);
+router.get('/timesheet', timesheetController.getTimesheets);
+router.get('/timesheet/:id', timesheetController.getTimesheetById);
 
 // Deductions routes
-router.post('/deductions', payrollController.createDeduction);
-router.get('/deductions', payrollController.getAllDeductions);
-router.get('/deductions/:id', payrollController.getDeductionById);
-router.put('/deductions/:id', payrollController.updateDeduction);
-router.delete('/deductions/:id', payrollController.deleteDeduction);
+router.post('/deductions', deductionsController.createDeduction);
+router.get('/deductions', deductionsController.getDeductions);
+router.get('/deductions/:id', deductionsController.getDeductionById);
+router.put('/deductions/:id', deductionsController.updateDeduction);
+router.delete('/deductions/:id', deductionsController.deleteDeduction);
 
-// Expense routes
-router.post('/expenses', payrollController.createExpense);
-router.get('/expenses', payrollController.getAllExpenses);
-router.get('/expenses/:id', payrollController.getExpenseById);
-router.put('/expenses/:id', payrollController.updateExpense);
-router.delete('/expenses/:id', payrollController.deleteExpense);
 
 // Leave Type routes
-router.post('/leave/types', payrollController.createLeaveType);
-router.get('/leave/types', payrollController.getAllLeaveTypes);
-router.get('/leave/types/:id', payrollController.getLeaveTypeById);
-router.put('/leave/types/:id', payrollController.updateLeaveType);
-router.delete('/leave/types/:id', payrollController.deleteLeaveType);
+router.post('/leave/types', leaveTypeController.createLeaveType);
+router.get('/leave/types', leaveTypeController.getLeaveTypes);
+router.get('/leave/types/:id', leaveTypeController.getLeaveTypeById);
+router.put('/leave/types/:id', leaveTypeController.updateLeaveType);
+router.delete('/leave/types/:id', leaveTypeController.deleteLeaveType);
 
-// Leave routes
-router.post('/leave', payrollController.createLeave);
-router.get('/leave', payrollController.getAllLeaves);
-router.get('/leave/:id', payrollController.getLeaveById);
-router.put('/leave/:id', payrollController.updateLeave);
-router.delete('/leave/:id', payrollController.deleteLeave);
+
+
 
 // Payroll Settings routes
-router.get('/payroll/settings', payrollController.getPayrollSettings);
-router.put('/payroll/settings', payrollController.updatePayrollSettings);
+// router.get('/payroll/settings', payrollSettingsController.getPayrollSettings);
+// router.put('/payroll/settings', payrollSettingsController.updatePayrollSettings);
 
 // Time Off Request routes
-router.post('/time-off/request', payrollController.createTimeOffRequest);
-router.get('/time-off/request', payrollController.getAllTimeOffRequests);
-router.get('/time-off/request/:id', payrollController.getTimeOffRequestById);
-router.put('/time-off/request/:id', payrollController.updateTimeOffRequest);
-router.delete('/time-off/request/:id', payrollController.deleteTimeOffRequest);
+router.post('/time-off/request', timeOffController.createTimeOffRequest);
+router.get('/time-off/request', timeOffController.getAllTimeOffRequests);
+router.get('/time-off/request/:id', timeOffController.getTimeOffRequestById);
+router.put('/time-off/request/:id', timeOffController.updateTimeOffRequest);
+router.delete('/time-off/request/:id', timeOffController.deleteTimeOffRequest);
 
 // Training routes
-router.post('/training', payrollController.createTraining);
-router.get('/training', payrollController.getAllTrainings);
-router.get('/training/:id', payrollController.getTrainingById);
-router.put('/training/:id', payrollController.updateTraining);
-router.delete('/training/:id', payrollController.deleteTraining);
+router.post('/training', trainingController.createTraining);
+router.get('/training', trainingController.getAllTrainings);
+router.get('/training/:id', trainingController.getTrainingById);
+router.put('/training/:id', trainingController.updateTraining);
+router.delete('/training/:id', trainingController.deleteTraining);
+
+
+router.post('/leave', leaveController.createLeave);
+router.get('/leave', leaveController.getAllLeaves);
+router.get('/leave/:id', leaveController.getLeaveById);
+router.put('/leave/:id', leaveController.updateLeave);
+router.delete('/leave/:id', leaveController.deleteLeave);
+
+// Expense routes
+router.post('/expenses', expenseController.createExpense);
+router.get('/expenses', expenseController.getExpenses);
+router.get('/expenses/:id', expenseController.getExpenseById);
+router.put('/expenses/:id', expenseController.updateExpense);
+router.delete('/expenses/:id', expenseController.deleteExpense);
+
 
 
 module.exports = router;

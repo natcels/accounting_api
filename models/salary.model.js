@@ -13,17 +13,6 @@ const allowanceSchema = new mongoose.Schema({
     },
 });
 
-const deductionSchema = new mongoose.Schema({
-    _id: mongoose.Schema.Types.ObjectId,
-    narration: {
-        type: String,
-        required: true,
-    },
-    amount: {
-        type: Number,
-        required: true,
-    },
-});
 
 
 const bonusSchema = new mongoose.Schema({
@@ -56,7 +45,12 @@ const salarySchema = new mongoose.Schema({
     },
     allowances: [allowanceSchema],
     bonuses: [bonusSchema],
-    deductions: [deductionSchema],
+    deductions: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Deduction",
+        }
+    ],
 
 });
 
@@ -66,6 +60,5 @@ const salarySchema = new mongoose.Schema({
 module.exports = {
     Allowance: mongoose.model('Allowance', allowanceSchema),
     Bonus: mongoose.model('Bonus', bonusSchema),
-    Deduction: mongoose.model('Deduction', deductionSchema),
     Salary: mongoose.model('Salary', salarySchema),
 };

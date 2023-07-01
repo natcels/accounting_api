@@ -1,4 +1,4 @@
-const TimeOffRequest = require('../models/timeOffRequest.model');
+const TimeOffRequest = require('../models/time_off_requests.model');
 
 exports.createTimeOffRequest = (req, res) => {
     const timeOffRequestData = req.body;

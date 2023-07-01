@@ -11,6 +11,7 @@ const db = require("./utils/db.util");
 const loggingMiddleware = require("./utils/logging");
 const appRoutes = require('./routes/routes');
 
+
 db.connect();
 
 app.use((req, res, next) => {

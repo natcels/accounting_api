@@ -10,7 +10,7 @@ const employeeSchema = new mongoose.Schema({
     },
     profile: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: Profile
+        ref: "Profile",
     },
     department: {
         type: mongoose.Schema.Types.ObjectId,
@@ -58,4 +58,3 @@ const employeeSchema = new mongoose.Schema({
 
 
 module.exports = mongoose.model('Employee', employeeSchema);
-module.exports = projectStatus;

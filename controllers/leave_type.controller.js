@@ -1,4 +1,4 @@
-const LeaveType = require('../models/leaveType.model');
+const LeaveType = require('../models/leave_type.model');
 
 exports.createLeaveType = (req, res) => {
     const leaveTypeData = req.body;

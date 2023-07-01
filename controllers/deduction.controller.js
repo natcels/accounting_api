@@ -1,4 +1,4 @@
-const Deduction = require('./../models/deduction.model');
+const Deduction = require('../models/_deduction.model');
 
 // Create a new deduction
 exports.createDeduction = (req, res) => {

@@ -1,4 +1,4 @@
-const Timesheet = require('../models/timesheet.model');
+const Timesheet = require('../models/time_sheet.model');
 
 // Create a new timesheet
 exports.createTimesheet = (req, res) => {

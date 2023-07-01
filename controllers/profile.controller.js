@@ -1,5 +1,5 @@
 const Profile = require('../models/profile.model');
-const upload = require('./../utils/handle_uploads');
+//const upload = require('./../utils/handle_uploads');
 
 
 exports.updateProfilePicture = (req, res) => {
@@ -21,7 +21,7 @@ exports.updateProfilePicture = (req, res) => {
 
 exports.updateAvatar = (req, res) => {
     const profileId = req.params.id;
-    const avatar = req.file.path; // Assuming you are using a middleware like Multer for file upload
+    const avatar = req.file.path;
 
     Profile.findByIdAndUpdate(
         profileId,
@@ -37,7 +37,7 @@ exports.updateAvatar = (req, res) => {
 };
 
 
-exports.uploadProfilePicture = upload.single('profilePicture');
+//exports.uploadProfilePicture = upload.single('profilePicture');
 
 exports.createProfile = (req, res) => {
     const profileData = req.body;
@@ -103,5 +103,3 @@ exports.deleteProfile = (req, res) => {
         });
 };
 
-
-// Implement other profile-related controllers (e.g., update, delete, get by ID, etc.) as needed

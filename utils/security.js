@@ -1,5 +1,6 @@
 const rateLimit = require('express-rate-limit');
 const ipBlock = require('express-ip-block');
+const { BlockedIP } = require('../models/blockedIps.model');
 
 // Rate Limiting Middleware
 const limiter = rateLimit({
@@ -8,20 +9,25 @@ const limiter = rateLimit({
     message: 'Too many requests from this IP, please try again later.',
 });
 
-// IP Blocking Middleware
-/** TODO: 
- * Update this to get the list of blocked IP addresses from a database or something 
- * Also to enable new IP addresses to be added to the list
- **/
-const blockedIPs = [
-    //  '127.0.0.1',
-    //  '192.168.0.1'
-];
 
-const blockIP = ipBlock({
-    ips: blockedIPs,
-    errorMessage: 'Your IP address is not allowed to access this resource.',
-});
+const blockIP = async (req, res, next) => {
+    try {
+        const blockedIPs = await BlockedIP.find(); // Fetch blocked IP addresses from the database
+
+        const blockedIPStrings = blockedIPs.map((ip) => ip.ip_address);
+
+        const ipBlockMiddleware = ipBlock({
+            ips: blockedIPStrings,
+            errorMessage: 'Your IP address is not allowed to access this resource.',
+        });
+
+        ipBlockMiddleware(req, res, next);
+    } catch (error) {
+        console.error('Error fetching blocked IPs from the database:', error);
+        res.status(500).send('Internal Server Error');
+    }
+};
+
 
 module.exports = {
     limiter,

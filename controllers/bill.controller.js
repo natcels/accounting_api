@@ -12,9 +12,9 @@ exports.getAll = async (req, res) => {
     }
 }
 
-exports.getPatientBill = async (req, res) => {
+exports.getCustomerBill = async (req, res) => {
     try {
-        const bills = await Bill.findByPatient(req.body.patientID).populate();
+        const bills = await Bill.findByCustomer(req.body.customerId).populate();
         if (!bills) {
             return res.status(404).send();
         }

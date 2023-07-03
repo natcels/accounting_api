@@ -9,7 +9,10 @@ const limiter = rateLimit({
 });
 
 // IP Blocking Middleware
-const blockedIPs = ['127.0.0.1', '192.168.0.1']; // Example of blocked IPs
+const blockedIPs = [
+    '127.0.0.1',
+    '192.168.0.1'
+]; // Example of blocked IPs
 
 const blockIP = ipBlock({
     ips: blockedIPs,

@@ -17,7 +17,7 @@ const payrollSettingsSchema = new mongoose.Schema({
     bonusCalculations: {
         // Define bonus calculations according to your requirements
     },
-    // Add any other fields related to payroll settings
+
 });
 
 module.exports = mongoose.model('PayrollSettings', payrollSettingsSchema);

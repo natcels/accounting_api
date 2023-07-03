@@ -21,21 +21,40 @@ const billItemSchema = new mongoose.Schema({
         type: Number,
         required: false
     },
-    qty: { type: Number, defaultValue: 1 },
-}, { timestamps: true });
+    qty: {
+        type: Number,
+        defaultValue: 1
+    },
+}, {
+    timestamps: true
+});
 
 const billSchema = new mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
-    patient: { type: mongoose.Schema.Types.ObjectId, ref: "User", index: true },
+    customer: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+        index: true
+    },
     status: String,
-    _date: { type: Number, defaultValue: Date.now(), required: true },
-    dueDate: { type: Number, defaultValue: Date.now(), required: true },
+    _date: {
+        type: Number,
+        defaultValue: Date.now(),
+        required: true
+    },
+    dueDate: {
+        type: Number,
+        defaultValue: Date.now(),
+        required: true
+    },
     billItems: [billItemSchema]
-}, { timestamps: true });
+}, {
+    timestamps: true
+});
 
-billSchema.statics.findByPatient = function (patientID) {
+billSchema.statics.findByCustomer = function (customerId) {
     const Bill = this;
-    return Bill.find({ patientID });
+    return Bill.find({ customerId });
 };
 
 

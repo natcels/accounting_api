@@ -44,7 +44,7 @@ app.use("/uploads", express.static("uploads"));
 app.use("/logs", express.static("logs"));
 
 //testing the api
-app.get("/", (req, res) => {
+app.get("/api/", (req, res) => {
   res.send("WELCOME TO THE BUSINESS COMPANION A.P.I.");
 });
 

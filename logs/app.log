@@ -1,0 +1,191 @@
+
+    Method: GET
+    URL: /api/
+    Body: {}
+    Params: {}
+    Query: {}
+    Headers: {"accept-encoding":"gzip, deflate, br","accept":"*/*","user-agent":"Thunder Client (https://www.thunderclient.com)","host":"localhost:6000","connection":"close"}
+    IP: ::ffff:127.0.0.1
+    Timestamp: 2023-07-03T19:27:14.071Z
+    --------------------------------------------------
+  
+    Method: GET
+    URL: /api/
+    Body: {}
+    Params: {}
+    Query: {}
+    Headers: {"accept-encoding":"gzip, deflate, br","accept":"*/*","user-agent":"Thunder Client (https://www.thunderclient.com)","host":"localhost:6000","connection":"close"}
+    IP: ::ffff:127.0.0.1
+    Timestamp: 2023-07-03T19:27:37.459Z
+    --------------------------------------------------
+  
+    Method: GET
+    URL: /api/
+    Body: {}
+    Params: {}
+    Query: {}
+    Headers: {"accept-encoding":"gzip, deflate, br","accept":"*/*","user-agent":"Thunder Client (https://www.thunderclient.com)","host":"localhost:6000","connection":"close"}
+    IP: ::ffff:127.0.0.1
+    Timestamp: 2023-07-03T19:29:35.035Z
+    --------------------------------------------------
+  
+    Method: GET
+    URL: /api/
+    Body: {}
+    Params: {}
+    Query: {}
+    Headers: {"accept-encoding":"gzip, deflate, br","accept":"*/*","user-agent":"Thunder Client (https://www.thunderclient.com)","host":"localhost:6000","connection":"close"}
+    IP: ::ffff:127.0.0.1
+    Timestamp: 2023-07-03T19:29:43.210Z
+    --------------------------------------------------
+  
+    Method: GET
+    URL: /api/
+    Body: {}
+    Params: {}
+    Query: {}
+    Headers: {"accept-encoding":"gzip, deflate, br","accept":"*/*","user-agent":"Thunder Client (https://www.thunderclient.com)","host":"localhost:6000","connection":"close"}
+    IP: ::ffff:127.0.0.1
+    Timestamp: 2023-07-03T19:30:40.686Z
+    --------------------------------------------------
+  
+    Method: GET
+    URL: /api/
+    Body: {}
+    Params: {}
+    Query: {}
+    Headers: {"accept-encoding":"gzip, deflate, br","accept":"*/*","user-agent":"Thunder Client (https://www.thunderclient.com)","host":"localhost:6000","connection":"close"}
+    IP: ::ffff:127.0.0.1
+    Timestamp: 2023-07-03T19:30:44.229Z
+    --------------------------------------------------
+  
+    Method: GET
+    URL: /api/
+    Body: {}
+    Params: {}
+    Query: {}
+    Headers: {"accept-encoding":"gzip, deflate, br","accept":"*/*","user-agent":"Thunder Client (https://www.thunderclient.com)","host":"localhost:6000","connection":"close"}
+    IP: ::ffff:127.0.0.1
+    Timestamp: 2023-07-03T19:30:49.466Z
+    --------------------------------------------------
+  
+    Method: GET
+    URL: /api/user
+    Body: {}
+    Params: {}
+    Query: {}
+    Headers: {"accept-encoding":"gzip, deflate, br","accept":"*/*","user-agent":"Thunder Client (https://www.thunderclient.com)","host":"localhost:6000","connection":"close"}
+    IP: ::ffff:127.0.0.1
+    Timestamp: 2023-07-03T19:30:54.773Z
+    --------------------------------------------------
+  
+    Method: GET
+    URL: /api/users
+    Body: {}
+    Params: {}
+    Query: {}
+    Headers: {"accept-encoding":"gzip, deflate, br","accept":"*/*","user-agent":"Thunder Client (https://www.thunderclient.com)","host":"localhost:6000","connection":"close"}
+    IP: ::ffff:127.0.0.1
+    Timestamp: 2023-07-03T19:31:21.539Z
+    --------------------------------------------------
+  
+    Method: GET
+    URL: /api/signup
+    Body: {}
+    Params: {}
+    Query: {}
+    Headers: {"content-type":"multipart/form-data; boundary=--------------------------752416432197710262456641","content-length":"407","accept-encoding":"gzip, deflate, br","accept":"*/*","user-agent":"Thunder Client (https://www.thunderclient.com)","host":"localhost:6000","connection":"close"}
+    IP: ::ffff:127.0.0.1
+    Timestamp: 2023-07-03T19:32:24.811Z
+    --------------------------------------------------
+  
+    Method: GET
+    URL: /api/signup
+    Body: {}
+    Params: {}
+    Query: {}
+    Headers: {"content-type":"multipart/form-data; boundary=--------------------------914735560907856979321323","content-length":"407","accept-encoding":"gzip, deflate, br","accept":"*/*","user-agent":"Thunder Client (https://www.thunderclient.com)","host":"localhost:6000","connection":"close"}
+    IP: ::ffff:127.0.0.1
+    Timestamp: 2023-07-03T19:33:13.983Z
+    --------------------------------------------------
+  
+    Method: GET
+    URL: /api/api/signup
+    Body: {}
+    Params: {}
+    Query: {}
+    Headers: {"content-type":"multipart/form-data; boundary=--------------------------347547584427883213987575","content-length":"407","accept-encoding":"gzip, deflate, br","accept":"*/*","user-agent":"Thunder Client (https://www.thunderclient.com)","host":"localhost:6000","connection":"close"}
+    IP: ::ffff:127.0.0.1
+    Timestamp: 2023-07-03T19:33:30.098Z
+    --------------------------------------------------
+  
+    Method: POST
+    URL: /api/signup
+    Body: {}
+    Params: {}
+    Query: {}
+    Headers: {"content-type":"multipart/form-data; boundary=--------------------------910149588475474434809048","content-length":"407","accept-encoding":"gzip, deflate, br","accept":"*/*","user-agent":"Thunder Client (https://www.thunderclient.com)","host":"localhost:6000","connection":"close"}
+    IP: ::ffff:127.0.0.1
+    Timestamp: 2023-07-03T19:33:41.875Z
+    --------------------------------------------------
+  
+    Method: POST
+    URL: /api/signup
+    Body: {}
+    Params: {}
+    Query: {}
+    Headers: {"content-type":"multipart/form-data; boundary=--------------------------004660872966059247978116","content-length":"408","accept-encoding":"gzip, deflate, br","accept":"*/*","user-agent":"Thunder Client (https://www.thunderclient.com)","host":"localhost:6000","connection":"close"}
+    IP: ::ffff:127.0.0.1
+    Timestamp: 2023-07-03T19:34:56.489Z
+    --------------------------------------------------
+  
+    Method: POST
+    URL: /api/signup
+    Body: {}
+    Params: {}
+    Query: {}
+    Headers: {"content-type":"multipart/form-data; boundary=--------------------------771433956405714840584909","content-length":"407","accept-encoding":"gzip, deflate, br","accept":"*/*","user-agent":"Thunder Client (https://www.thunderclient.com)","host":"localhost:6000","connection":"close"}
+    IP: ::ffff:127.0.0.1
+    Timestamp: 2023-07-03T19:35:07.597Z
+    --------------------------------------------------
+  
+    Method: POST
+    URL: /api/signup
+    Body: {"username":"natcels","password":"UDY_4Nath","email":"natcels@gmail.com"}
+    Params: {}
+    Query: {}
+    Headers: {"content-length":"86","accept-encoding":"gzip, deflate, br","accept":"*/*","user-agent":"Thunder Client (https://www.thunderclient.com)","content-type":"application/json","host":"localhost:6000","connection":"close"}
+    IP: ::ffff:127.0.0.1
+    Timestamp: 2023-07-03T19:37:56.586Z
+    --------------------------------------------------
+  
+    Method: GET
+    URL: /api/users
+    Body: {"username":"natcels","password":"UDY_4Nath","email":"natcels@gmail.com"}
+    Params: {}
+    Query: {}
+    Headers: {"content-length":"86","accept-encoding":"gzip, deflate, br","accept":"*/*","user-agent":"Thunder Client (https://www.thunderclient.com)","content-type":"application/json","host":"localhost:6000","connection":"close"}
+    IP: ::ffff:127.0.0.1
+    Timestamp: 2023-07-03T19:38:25.706Z
+    --------------------------------------------------
+  
+    Method: GET
+    URL: /api/users
+    Body: {"username":"natcels","password":"UDY_4Nath","email":"natcels@gmail.com"}
+    Params: {}
+    Query: {}
+    Headers: {"content-length":"86","accept-encoding":"gzip, deflate, br","accept":"*/*","user-agent":"Thunder Client (https://www.thunderclient.com)","content-type":"application/json","host":"localhost:6000","connection":"close"}
+    IP: ::ffff:127.0.0.1
+    Timestamp: 2023-07-03T19:39:15.215Z
+    --------------------------------------------------
+  
+    Method: GET
+    URL: /api/
+    Body: {"username":"natcels","password":"UDY_4Nath","email":"natcels@gmail.com"}
+    Params: {}
+    Query: {}
+    Headers: {"content-length":"86","accept-encoding":"gzip, deflate, br","accept":"*/*","user-agent":"Thunder Client (https://www.thunderclient.com)","content-type":"application/json","host":"localhost:6000","connection":"close"}
+    IP: ::ffff:127.0.0.1
+    Timestamp: 2023-07-03T19:39:49.697Z
+    --------------------------------------------------
+  

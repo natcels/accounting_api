@@ -16,10 +16,10 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
     enum: ["Verified", "Unverified"],
-    default: "Unverified"
+    default: "Verified"
   },
   secret: String,
-  userType: { type: String, required: true, trim: true, minlength: 3, default: "Guest" },
+  userType: { type: String, required: true, trim: true, minlength: 3, default: "Employee" },
   sessions: [
     {
       token: { type: String, required: true },

@@ -8,13 +8,13 @@ const connectionOptions = {
 };
 
 function connect() {
-  let connectionString = null;
-  if (process.env.NODE_ENV !== "production") {
-    //connectionString = process.env.MONGO_LOCAL;
-    connectionString = process.env.MONGO_URI + process.env.ATLAS_PWD + process.env.REMOTE_DB;
-  } else {
-    connectionString = process.env.MONGO_URI + process.env.ATLAS_PWD + process.env.REMOTE_DB;
-  }
+  let connectionString = process.env.MONGO_URI + process.env.ATLAS_PWD + process.env.REMOTE_DB;
+  // if (process.env.NODE_ENV !== "production") {
+  //  connectionString = process.env.MONGO_LOCAL;
+
+  // } else {
+  //   connectionString = process.env.MONGO_URI + process.env.ATLAS_PWD + process.env.REMOTE_DB;
+  // }
 
   goose.connect(connectionString, connectionOptions)
     .catch((err) => {

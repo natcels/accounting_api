@@ -14,8 +14,8 @@ const limiter = rateLimit({
  * Also to enable new IP addresses to be added to the list
  **/
 const blockedIPs = [
-    '127.0.0.1',
-    '192.168.0.1'
+    //  '127.0.0.1',
+    //  '192.168.0.1'
 ];
 
 const blockIP = ipBlock({

@@ -9,10 +9,14 @@ const limiter = rateLimit({
 });
 
 // IP Blocking Middleware
+/** TODO: 
+ * Update this to get the list of blocked IP addresses from a database or something 
+ * Also to enable new IP addresses to be added to the list
+ **/
 const blockedIPs = [
     '127.0.0.1',
     '192.168.0.1'
-]; // Example of blocked IPs
+];
 
 const blockIP = ipBlock({
     ips: blockedIPs,

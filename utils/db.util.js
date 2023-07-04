@@ -1,24 +1,18 @@
 const goose = require("mongoose");
 
 const connectionOptions = {
-  useCreateIndex: true,
+  //useCreateIndex: true,
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  useFindAndModify: false,
+  //useFindAndModify: false,
 };
 
 function connect() {
-  let connectionString = process.env.MONGO_URI + process.env.ATLAS_PWD + process.env.REMOTE_DB;
-  // if (process.env.NODE_ENV !== "production") {
-  //  connectionString = process.env.MONGO_LOCAL;
-
-  // } else {
-  //   connectionString = process.env.MONGO_URI + process.env.ATLAS_PWD + process.env.REMOTE_DB;
-  // }
+  let connectionString = process.env.REMOTE_DB;
 
   goose.connect(connectionString, connectionOptions)
     .catch((err) => {
-      console.log("Error! Could not connect to database server.")
+      console.log("Error! Could not connect to database server.", err)
     });
 
   goose.connection.on("connected", () => {

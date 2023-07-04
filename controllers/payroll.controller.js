@@ -1,106 +1,78 @@
 const Payroll = require('../models/payroll.model');
-const Employee = require('../models/employee.model');
 
-// Create a new payroll
-exports.createPayroll = async (req, res) => {
+// Get all payrolls for a specific organization
+exports.getPayrolls = async (req, res) => {
     try {
-        const { month, year, employeeId, salary, organization, /* Other payroll fields... */ } = req.body;
-
-        // Check if the employee exists
-        const employee = await Employee.findById(employeeId);
-        if (!employee) {
-            return res.status(404).json({ error: 'Employee not found.' });
-        }
-
-        const payroll = new Payroll({
-            month,
-            year,
-            employeeId,
-            salary,
-            organization,
-            // Set other payroll fields...
-        });
-
-        const savedPayroll = await payroll.save();
-
-        res.status(201).json(savedPayroll);
-    } catch (error) {
-        res.status(500).json({ error: 'An error occurred while creating the payroll.' });
-    }
-};
-
-// Get all payrolls
-exports.getAllPayrolls = async (req, res) => {
-    try {
-        const payrolls = await Payroll.find().populate('employeeId');
+        const organizationId = req.params.organizationId;
+        const payrolls = await Payroll.find({ organizationId });
         res.json(payrolls);
     } catch (error) {
-        res.status(500).json({ error: 'An error occurred while retrieving the payrolls.' });
+        res.status(500).json({ error: 'Internal server error' });
     }
 };
 
-// Get a specific payroll by ID
-exports.getPayrollById = async (req, res) => {
+// Create a new payroll for a specific organization
+exports.createPayroll = async (req, res) => {
     try {
-        const { id } = req.params;
-        const payroll = await Payroll.findById(id).populate('employeeId');
-
-        if (!payroll) {
-            return res.status(404).json({ error: 'Payroll not found.' });
-        }
-
-        res.json(payroll);
+        const organizationId = req.params.organizationId;
+        const payrollData = req.body;
+        payrollData.organizationId = organizationId;
+        const payroll = await Payroll.create(payrollData);
+        res.status(201).json(payroll);
     } catch (error) {
-        res.status(500).json({ error: 'An error occurred while retrieving the payroll.' });
+        res.status(500).json({ error: 'Internal server error' });
     }
 };
 
-// Update a payroll
+// Get a specific payroll for a specific organization
+exports.getPayroll = async (req, res) => {
+    try {
+        const organizationId = req.params.organizationId;
+        const payrollId = req.params.payrollId;
+        const payroll = await Payroll.findOne({ _id: payrollId, organizationId });
+        if (!payroll) {
+            res.status(404).json({ error: 'Payroll not found' });
+        } else {
+            res.json(payroll);
+        }
+    } catch (error) {
+        res.status(500).json({ error: 'Internal server error' });
+    }
+};
+
+// Update a specific payroll for a specific organization
 exports.updatePayroll = async (req, res) => {
     try {
-        const { id } = req.params;
-        const { month, year, employeeId, salary, /* Other payroll fields... */ } = req.body;
-
-        // Check if the employee exists
-        const employee = await Employee.findById(employeeId);
-        if (!employee) {
-            return res.status(404).json({ error: 'Employee not found.' });
+        const organizationId = req.params.organizationId;
+        const payrollId = req.params.payrollId;
+        const payrollData = req.body;
+        const updatedPayroll = await Payroll.findOneAndUpdate(
+            { _id: payrollId, organizationId },
+            payrollData,
+            { new: true }
+        );
+        if (!updatedPayroll) {
+            res.status(404).json({ error: 'Payroll not found' });
+        } else {
+            res.json(updatedPayroll);
         }
-
-        const payroll = await Payroll.findByIdAndUpdate(
-            id,
-            {
-                month,
-                year,
-                employeeId,
-                salary,
-                // Update other payroll fields...
-            },
-            { new: true } // Return the updated payroll
-        ).populate('employeeId');
-
-        if (!payroll) {
-            return res.status(404).json({ error: 'Payroll not found.' });
-        }
-
-        res.json(payroll);
     } catch (error) {
-        res.status(500).json({ error: 'An error occurred while updating the payroll.' });
+        res.status(500).json({ error: 'Internal server error' });
     }
 };
 
-// Delete a payroll
+// Delete a specific payroll for a specific organization
 exports.deletePayroll = async (req, res) => {
     try {
-        const { id } = req.params;
-        const deletedPayroll = await Payroll.findByIdAndRemove(id).populate('employeeId');
-
+        const organizationId = req.params.organizationId;
+        const payrollId = req.params.payrollId;
+        const deletedPayroll = await Payroll.findOneAndDelete({ _id: payrollId, organizationId });
         if (!deletedPayroll) {
-            return res.status(404).json({ error: 'Payroll not found.' });
+            res.status(404).json({ error: 'Payroll not found' });
+        } else {
+            res.json(deletedPayroll);
         }
-
-        res.json(deletedPayroll);
     } catch (error) {
-        res.status(500).json({ error: 'An error occurred while deleting the payroll.' });
+        res.status(500).json({ error: 'Internal server error' });
     }
 };

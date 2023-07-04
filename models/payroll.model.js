@@ -1,17 +1,17 @@
 const mongoose = require('mongoose');
 
 const payrollSchema = new mongoose.Schema({
+    organizationId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Organization',
+        required: true,
+    },
     month: {
         type: String,
         required: true,
     },
     year: {
         type: Number,
-        required: true,
-    },
-    organization: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Organization",
         required: true,
     },
     employeeId: {
@@ -24,8 +24,14 @@ const payrollSchema = new mongoose.Schema({
         required: true,
     },
     deductions: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Deduction"
+        name: {
+            type: String,
+            required: true,
+        },
+        amount: {
+            type: Number,
+            required: true,
+        },
     }],
     allowances: [{
         name: {
@@ -57,21 +63,10 @@ const payrollSchema = new mongoose.Schema({
         type: Number,
         required: true,
     },
-    taxes: {
-        taxRate: {
-            type: Number,
-            required: true,
-        },
-        taxWithholdings: [{
-            name: {
-                type: String,
-                required: true,
-            },
-            amount: {
-                type: Number,
-                required: true,
-            },
-        }],
+    taxId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Tax',
+        required: true,
     },
 }, { timestamps: true });
 

@@ -1,5 +1,3 @@
-const server = require('./utils/server');
-//const secureServer = require('./utils/secureServer');
+const db = require('./utils/db.util');
 
-server.startServer();
-//secureServer.startServer(); 
+db.connect();

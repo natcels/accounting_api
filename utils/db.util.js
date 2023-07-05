@@ -1,5 +1,5 @@
 const goose = require("mongoose");
-
+const server = require('./server');
 const connectionOptions = {
   //useCreateIndex: true,
   useNewUrlParser: true,
@@ -17,6 +17,7 @@ function connect() {
 
   goose.connection.on("connected", () => {
     console.log("Connected to Database");
+    server.startServer()
   });
 
   goose.Promise = global.Promise;

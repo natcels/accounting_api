@@ -7,12 +7,12 @@ const bodyp = require("body-parser");
 const cors = require("cors");
 var path = require("path");
 const securityMiddleMan = require('./utils/security');
-const db = require("./utils/db.util");
+//const db = require("./utils/db.util");
 const loggingMiddleware = require("./utils/logging");
 const appRoutes = require('./routes/routes');
 
 
-db.connect();
+//db.connect();
 
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");

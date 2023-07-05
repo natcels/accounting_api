@@ -14,7 +14,7 @@ const timesheetController = require('../controllers/timesheet.controller');
 const trainingController = require('../controllers/training.controller');
 const timeOffController = require('../controllers/time_off_request.controller');
 const payrollSettingsController = require('../controllers/payroll.controller');
-
+const taxController = require('../controllers/tax.controller');
 const leaveTypeController = require('../controllers/leave_type.controller');
 
 //import utilities
@@ -137,6 +137,13 @@ router.get('/expenses/:id', expenseController.getExpenseById);
 router.put('/expenses/:id', expenseController.updateExpense);
 router.delete('/expenses/:id', expenseController.deleteExpense);
 
+
+
+router.post('/taxes', taxController.createTax);
+router.get('/taxes', taxController.getTaxes);
+router.get('/taxes/:id', taxController.getTax);
+router.put('/taxes/:id', taxController.updateTax);
+router.delete('/taxes/:id', taxController.deleteTax);
 
 
 module.exports = router;

@@ -12,7 +12,7 @@ function connect() {
 
   goose.connect(connectionString, connectionOptions)
     .catch((err) => {
-      console.log("Error! Could not connect to database server.", err)
+      console.log("Error! Could not connect to database server.")
     });
 
   goose.connection.on("connected", () => {

@@ -20,8 +20,8 @@ const blockIP = async (req, res, next) => {
             errorMessage: 'Your IP address is not allowed to access this resource.',
         });
 
-        ipBlockMiddleware(req, res, next);
-
+        //        ipBlockMiddleware(req, res, next);
+        next;
     } catch (error) {
         console.error('Error fetching blocked IPs from the database:');
         res.status(500).send('Internal Server Error');

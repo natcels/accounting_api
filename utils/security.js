@@ -1,6 +1,6 @@
 const rateLimit = require('express-rate-limit');
 const ipBlock = require('express-ip-block');
-const { BlockedIP } = require('../models/blockedIps.model');
+const { BlockedIP } = require('./../models/blockedIps.model');
 
 // Rate Limiting Middleware
 const limiter = rateLimit({
@@ -12,18 +12,19 @@ const limiter = rateLimit({
 
 const blockIP = async (req, res, next) => {
     try {
-        const blockedIPs = await BlockedIP.find(); // Fetch blocked IP addresses from the database
+        const blockedIPs = await BlockedIP.find();
+        if (blockedIPs.length > 0) {
+            const blockedIPStrings = blockedIPs.map((ip) => ip.ip_address);
 
-        const blockedIPStrings = blockedIPs.map((ip) => ip.ip_address);
+            const ipBlockMiddleware = ipBlock({
+                ips: blockedIPStrings,
+                errorMessage: 'Your IP address is not allowed to access this resource.',
+            });
 
-        const ipBlockMiddleware = ipBlock({
-            ips: blockedIPStrings,
-            errorMessage: 'Your IP address is not allowed to access this resource.',
-        });
-
-        ipBlockMiddleware(req, res, next);
+            ipBlockMiddleware(req, res, next);
+        }
     } catch (error) {
-        console.error('Error fetching blocked IPs from the database:', error);
+        console.error('Error fetching blocked IPs from the database:');
         res.status(500).send('Internal Server Error');
     }
 };

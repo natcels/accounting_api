@@ -26,7 +26,7 @@ const blockIP = async (req, res, next) => {
         console.error('Error fetching blocked IPs from the database:');
         res.status(500).send('Internal Server Error');
     }
-    next;
+    next();
 };
 
 

@@ -49,6 +49,6 @@ app.get("/", (req, res) => {
 });
 
 //setting up routes
-app.use('/api/', appRoutes);
+app.use('/', appRoutes);
 
 module.exports = app;

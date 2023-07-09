@@ -8,7 +8,7 @@ const cors = require("cors");
 var path = require("path");
 const securityMiddleMan = require('./utils/security');
 //const db = require("./utils/db.util");
-const loggingMiddleware = require("./utils/logging");
+//const loggingMiddleware = require("./utils/logging");
 const appRoutes = require('./routes/routes');
 
 
@@ -38,7 +38,7 @@ app.use(
 );
 app.use(securityMiddleMan.limiter);
 app.use(securityMiddleMan.blockIP);
-app.use(loggingMiddleware)
+//app.use(loggingMiddleware)
 app.use(express.static(path.join(__dirname, "public")));
 app.use("/uploads", express.static("uploads"));
 app.use("/logs", express.static("logs"));

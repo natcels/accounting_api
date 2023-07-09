@@ -31,5 +31,5 @@ const blockIP = async (req, res, next) => {
 
 module.exports = {
     limiter,
-    blockIP,
+    //blockIP,
 };

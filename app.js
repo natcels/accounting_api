@@ -37,7 +37,7 @@ app.use(
   })
 );
 app.use(securityMiddleMan.limiter);
-app.use(securityMiddleMan.blockIP);
+//app.use(securityMiddleMan.blockIP);
 app.use(loggingMiddleware)
 app.use(express.static(path.join(__dirname, "public")));
 app.use("/uploads", express.static("uploads"));

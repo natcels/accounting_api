@@ -13,7 +13,7 @@ const limiter = rateLimit({
 const blockIP = async (req, res, next) => {
     try {
         const blockedIPs = await BlockedIP.find();
-        const blockedIPStrings = (blockedIPs.length > 0) ? blockedIPs.map((ip) => ip.ip_address) : "0.0.0.0";
+        const blockedIPStrings = blockedIPs.map((ip) => ip.ip_address) || "127.0.0.1";
 
         const ipBlockMiddleware = ipBlock({
             ips: blockedIPStrings,
@@ -31,5 +31,5 @@ const blockIP = async (req, res, next) => {
 
 module.exports = {
     limiter,
-    //blockIP,
+    blockIP,
 };

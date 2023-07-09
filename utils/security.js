@@ -12,21 +12,20 @@ const limiter = rateLimit({
 
 const blockIP = async (req, res, next) => {
     try {
-        const blockedIPs = await BlockedIP.find();
-        const blockedIPStrings = blockedIPs.map((ip) => ip.ip_address) || "127.0.0.1";
+        //      const blockedIPs = await BlockedIP.find();
+        //        const blockedIPStrings = blockedIPs.map((ip) => ip.ip_address) || "127.0.0.1";
 
         const ipBlockMiddleware = ipBlock({
-            ips: blockedIPStrings,
+            //ips: blockedIPStrings,
+            ips: "127.0.0.1",
             errorMessage: 'Your IP address is not allowed to access this resource.',
         });
 
-        //        ipBlockMiddleware(req, res, next);
-        next;
+        ipBlockMiddleware(req, res, next);
     } catch (error) {
         console.error('Error fetching blocked IPs from the database:');
         res.status(500).send('Internal Server Error');
     }
-    next();
 };
 
 
